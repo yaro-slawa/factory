@@ -14,6 +14,8 @@ class Factory
       	  self.class.send(:attr_accessor, args[i])
       	end
       end
+
+      self.class_eval(&block) if block_given?
     end
   end
 end
