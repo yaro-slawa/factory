@@ -8,10 +8,10 @@ class Factory
     Class.new do
 
       define_method :initialize do |*params|
-      	raise ArgumentError, "" unless params.length == args.length
+      	raise ArgumentError, "wrong number of arguments" unless params.length == args.length
       	(0...params.length).each do |i| 
-      		instance_variable_set("@#{args[i]}", params[i]) 
-      		self.class.send(:attr_accessor, args[i])
+      	  instance_variable_set("@#{args[i]}", params[i]) 
+      	  self.class.send(:attr_accessor, args[i])
       	end
       end
     end
