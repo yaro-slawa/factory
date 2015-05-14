@@ -22,7 +22,7 @@ class Factory
       end
 
       define_method :inspect do
-      	"<struct #{self.class} " << instance_variables.collect{ |var| "#{var}=" + instance_variable_get(var).to_s}.join(", ") + ">"
+      	"<struct #{self.class} " + instance_variables.collect{ |var| "#{var.to_s[/[a-zA-Z]+/]}=\"#{instance_variable_get(var)}\""}.join(", ") + ">"
       end
 
       class_eval(&block) if block_given?
