@@ -22,7 +22,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Customer = Factory.new(:name, :address, :zip)
+=> Customer
+
+joe = Customer.new("John Smith", "123 Maple, Anytown NC", 12345)
+=> #<struct Customer name="Joe Smith", address="123 Maple, Anytown NC", zip="12345">
+
+joe.name
+joe["name"]
+joe[:name]
+joe[0]
+=> "John Smith"
+
+Customer = Factory.new(:name, :age) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+Customer.new("Dave", 23).greeting
+=> "Hello Dave!"
+
+```
 
 ## Development
 
